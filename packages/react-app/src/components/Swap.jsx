@@ -44,8 +44,13 @@ const makeCall = async (callName, contract, args, metadata = {}) => {
     }
     return result;
   }
+<<<<<<< HEAD
   console.log("no call of that name!");
   return undefined;
+=======
+  return undefined;
+  console.log("no call of that name!");
+>>>>>>> 0b840342 (Initial commit)
 };
 
 const defaultToken = "ETH";
@@ -81,7 +86,13 @@ function Swap({ selectedProvider, tokenListURI }) {
   const [swapModalVisible, setSwapModalVisible] = useState(false);
 
   const [tokenList, setTokenList] = useState([]);
+<<<<<<< HEAD
   const [tokens, setTokens] = useState();
+=======
+
+  const [tokens, setTokens] = useState();
+
+>>>>>>> 0b840342 (Initial commit)
   const [invertPrice, setInvertPrice] = useState(false);
 
   const blockNumber = useBlockNumber(selectedProvider, 3000);
@@ -119,7 +130,11 @@ function Swap({ selectedProvider, tokenListURI }) {
       }
     };
     getTokenList();
+<<<<<<< HEAD
   }, [tokenListURI, _tokenListUri, activeChainId]);
+=======
+  }, [tokenListURI]);
+>>>>>>> 0b840342 (Initial commit)
 
   const getTrades = async () => {
     if (tokenIn && tokenOut && (amountIn || amountOut)) {
@@ -180,7 +195,10 @@ function Swap({ selectedProvider, tokenListURI }) {
 
   useEffect(() => {
     getTrades();
+<<<<<<< HEAD
     // eslint-disable-next-line
+=======
+>>>>>>> 0b840342 (Initial commit)
   }, [tokenIn, tokenOut, debouncedAmountIn, debouncedAmountOut, slippageTolerance, selectedProvider]);
 
   useEffect(() => {
@@ -191,7 +209,11 @@ function Swap({ selectedProvider, tokenListURI }) {
         setAmountInMax(trades[0].maximumAmountIn(slippageTolerance));
       }
     }
+<<<<<<< HEAD
   }, [slippageTolerance, amountIn, amountOut, trades, exact]);
+=======
+  }, [slippageTolerance, amountIn, amountOut, trades]);
+>>>>>>> 0b840342 (Initial commit)
 
   const getBalance = async (_token, _account, _contract) => {
     let newBalance;

@@ -4,8 +4,11 @@ import { useContractExistsAtAddress, useContractLoader } from "eth-hooks";
 import Account from "../Account";
 import DisplayVariable from "./DisplayVariable";
 import FunctionForm from "./FunctionForm";
+<<<<<<< HEAD
 import Address from "../Address";
 import Balance from "../Balance";
+=======
+>>>>>>> 0b840342 (Initial commit)
 
 const noContractDisplay = (
   <div>
@@ -95,7 +98,10 @@ export default function Contract({
             functionInfo={contractFuncInfo[1]}
             refreshRequired={refreshRequired}
             triggerRefresh={triggerRefresh}
+<<<<<<< HEAD
             blockExplorer={blockExplorer}
+=======
+>>>>>>> 0b840342 (Initial commit)
           />
         );
       }
@@ -119,6 +125,7 @@ export default function Contract({
     <div style={{ margin: "auto", width: "70vw" }}>
       <Card
         title={
+<<<<<<< HEAD
           <div style={{fontSize:24}}>
             {name}
             <div style={{ float: "right" }}>
@@ -130,6 +137,20 @@ export default function Contract({
                   provider={provider}
                   price={price}
                 />
+=======
+          <div>
+            {name}
+            <div style={{ float: "right" }}>
+              <Account
+                address={address}
+                localProvider={provider}
+                injectedProvider={provider}
+                mainnetProvider={provider}
+                price={price}
+                blockExplorer={blockExplorer}
+              />
+              {account}
+>>>>>>> 0b840342 (Initial commit)
             </div>
           </div>
         }

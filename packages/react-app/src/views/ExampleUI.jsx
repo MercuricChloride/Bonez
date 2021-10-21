@@ -1,11 +1,21 @@
 import { SyncOutlined } from "@ant-design/icons";
 import { utils } from "ethers";
+<<<<<<< HEAD
 import { Button, Card, DatePicker, Divider, Input, Progress, Slider, Spin, Switch } from "antd";
 import React, { useState } from "react";
 import { Address, Balance, Events } from "../components";
 
 export default function ExampleUI({
   purpose,
+=======
+import { Button, Card, DatePicker, Divider, Input, List, Progress, Slider, Spin, Switch } from "antd";
+import React, { useState } from "react";
+import { Address, Balance } from "../components";
+
+export default function ExampleUI({
+  purpose,
+  setPurposeEvents,
+>>>>>>> 0b840342 (Initial commit)
   address,
   mainnetProvider,
   localProvider,
@@ -153,6 +163,7 @@ export default function ExampleUI({
         📑 Maybe display a list of events?
           (uncomment the event and emit line in YourContract.sol! )
       */}
+<<<<<<< HEAD
       <Events
         contracts={readContracts}
         contractName="YourContract"
@@ -161,6 +172,23 @@ export default function ExampleUI({
         mainnetProvider={mainnetProvider}
         startBlock={1}
       />
+=======
+      <div style={{ width: 600, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
+        <h2>Events:</h2>
+        <List
+          bordered
+          dataSource={setPurposeEvents}
+          renderItem={item => {
+            return (
+              <List.Item key={item.blockNumber + "_" + item.args.sender + "_" + item.args.purpose}>
+                <Address address={item.args[0]} ensProvider={mainnetProvider} fontSize={16} />
+                {item.args[1]}
+              </List.Item>
+            );
+          }}
+        />
+      </div>
+>>>>>>> 0b840342 (Initial commit)
 
       <div style={{ width: 600, margin: "auto", marginTop: 32, paddingBottom: 256 }}>
         <Card>

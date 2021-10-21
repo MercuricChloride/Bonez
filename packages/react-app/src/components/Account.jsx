@@ -14,7 +14,10 @@ import Wallet from "./Wallet";
   ~ How can I use? ~
 
   <Account
+<<<<<<< HEAD
     useBurner={boolean}
+=======
+>>>>>>> 0b840342 (Initial commit)
     address={address}
     localProvider={localProvider}
     userProvider={userProvider}
@@ -24,7 +27,10 @@ import Wallet from "./Wallet";
     loadWeb3Modal={loadWeb3Modal}
     logoutOfWeb3Modal={logoutOfWeb3Modal}
     blockExplorer={blockExplorer}
+<<<<<<< HEAD
     isContract={boolean}
+=======
+>>>>>>> 0b840342 (Initial commit)
   />
 
   ~ Features ~
@@ -42,7 +48,10 @@ import Wallet from "./Wallet";
 */
 
 export default function Account({
+<<<<<<< HEAD
   useBurner,
+=======
+>>>>>>> 0b840342 (Initial commit)
   address,
   userSigner,
   localProvider,
@@ -53,10 +62,14 @@ export default function Account({
   loadWeb3Modal,
   logoutOfWeb3Modal,
   blockExplorer,
+<<<<<<< HEAD
   isContract,
 }) {
   const { currentTheme } = useThemeSwitcher();
 
+=======
+}) {
+>>>>>>> 0b840342 (Initial commit)
   const modalButtons = [];
   if (web3Modal) {
     if (web3Modal.cachedProvider) {
@@ -86,10 +99,17 @@ export default function Account({
       );
     }
   }
+<<<<<<< HEAD
+=======
+
+  const { currentTheme } = useThemeSwitcher();
+
+>>>>>>> 0b840342 (Initial commit)
   const display = minimized ? (
     ""
   ) : (
     <span>
+<<<<<<< HEAD
       {web3Modal && web3Modal.cachedProvider ? (
         <>
           {address && <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />}
@@ -129,6 +149,22 @@ export default function Account({
       ) : (
         <></>
       )}
+=======
+      {address ? (
+        <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
+      ) : (
+        "Connecting..."
+      )}
+      <Balance address={address} provider={localProvider} price={price} />
+      <Wallet
+        address={address}
+        provider={localProvider}
+        signer={userSigner}
+        ensProvider={mainnetProvider}
+        price={price}
+        color={currentTheme === "light" ? "#1890ff" : "#2caad9"}
+      />
+>>>>>>> 0b840342 (Initial commit)
     </span>
   );
 

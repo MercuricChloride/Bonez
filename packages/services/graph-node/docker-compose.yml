@@ -20,7 +20,11 @@ services:
       ethereum: "localhost:http://host.docker.internal:8545"
       GRAPH_LOG: info
   ipfs:
+<<<<<<< HEAD
     image: ipfs/go-ipfs:latest
+=======
+    image: ipfs/go-ipfs:v0.4.23
+>>>>>>> 0b840342 (Initial commit)
     ports:
       - "5001:5001"
     volumes:

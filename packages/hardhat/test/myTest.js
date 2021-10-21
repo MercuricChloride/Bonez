@@ -26,6 +26,7 @@ describe("My Dapp", function () {
         await myContract.setPurpose(newPurpose);
         expect(await myContract.purpose()).to.equal(newPurpose);
       });
+<<<<<<< HEAD
 
       // Uncomment the event and emit lines in YourContract.sol to make this test pass
 
@@ -38,6 +39,8 @@ describe("My Dapp", function () {
           emit(myContract, "SetPurpose").
             withArgs(owner.address, newPurpose);
       });*/
+=======
+>>>>>>> 0b840342 (Initial commit)
     });
   });
 });

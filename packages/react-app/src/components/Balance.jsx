@@ -32,12 +32,29 @@ const { utils } = require("ethers");
 export default function Balance(props) {
   const [dollarMode, setDollarMode] = useState(true);
 
+<<<<<<< HEAD
   const balance = useBalance(props.provider, props.address);
   let floatBalance = parseFloat("0.00");
   let usingBalance = balance;
 
   if (typeof props.balance !== "undefined") usingBalance = props.balance;
   if (typeof props.value !== "undefined") usingBalance = props.value;
+=======
+  // const [listening, setListening] = useState(false);
+
+  const balance = useBalance(props.provider, props.address);
+
+  let floatBalance = parseFloat("0.00");
+
+  let usingBalance = balance;
+
+  if (typeof props.balance !== "undefined") {
+    usingBalance = props.balance;
+  }
+  if (typeof props.value !== "undefined") {
+    usingBalance = props.value;
+  }
+>>>>>>> 0b840342 (Initial commit)
 
   if (usingBalance) {
     const etherBalance = utils.formatEther(usingBalance);

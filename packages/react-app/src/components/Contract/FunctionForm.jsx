@@ -2,7 +2,11 @@ import { Button, Col, Divider, Input, Row, Tooltip } from "antd";
 import React, { useState } from "react";
 import Blockies from "react-blockies";
 import { Transactor } from "../../helpers";
+<<<<<<< HEAD
 import { tryToDisplay, tryToDisplayAsText } from "./utils";
+=======
+import tryToDisplay from "./utils";
+>>>>>>> 0b840342 (Initial commit)
 
 const { utils, BigNumber } = require("ethers");
 
@@ -159,12 +163,15 @@ export default function FunctionForm({ contractFunction, functionInfo, provider,
     inputs.push(txValueInput);
   }
 
+<<<<<<< HEAD
   const handleForm = returned => {
     if (returned) {
       setForm({});
     }
   };
 
+=======
+>>>>>>> 0b840342 (Initial commit)
   const buttonIcon =
     functionInfo.type === "call" ? (
       <Button style={{ marginLeft: -32 }}>Read📡</Button>
@@ -203,8 +210,12 @@ export default function FunctionForm({ contractFunction, functionInfo, provider,
               if (functionInfo.stateMutability === "view" || functionInfo.stateMutability === "pure") {
                 try {
                   const returned = await contractFunction(...args);
+<<<<<<< HEAD
                   handleForm(returned);
                   result = tryToDisplayAsText(returned);
+=======
+                  result = tryToDisplay(returned);
+>>>>>>> 0b840342 (Initial commit)
                 } catch (err) {
                   console.error(err);
                 }
@@ -221,7 +232,10 @@ export default function FunctionForm({ contractFunction, functionInfo, provider,
 
                 // console.log("Running with extras",extras)
                 const returned = await tx(contractFunction(...args, overrides));
+<<<<<<< HEAD
                 handleForm(returned);
+=======
+>>>>>>> 0b840342 (Initial commit)
                 result = tryToDisplay(returned);
               }
 

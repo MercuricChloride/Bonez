@@ -1,27 +1,45 @@
 // MY INFURA_ID, SWAP IN YOURS FROM https://infura.io/dashboard/ethereum
+<<<<<<< HEAD
 export const INFURA_ID = "7b0e75d38d424750b92791477924d133";
 
 // MY ETHERSCAN_ID, SWAP IN YOURS FROM https://etherscan.io/myapikey
 export const ETHERSCAN_KEY = "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
+=======
+export const INFURA_ID = "460f40a260564ac4a4f4b3fffb032dad";
+
+// MY ETHERSCAN_ID, SWAP IN YOURS FROM https://etherscan.io/myapikey
+export const ETHERSCAN_KEY = "PSW8C433Q667DVEX5BCRMGNAH9FSGFZ7Q8";
+>>>>>>> 0b840342 (Initial commit)
 
 // BLOCKNATIVE ID FOR Notify.js:
 export const BLOCKNATIVE_DAPPID = "0b58206a-f3c0-4701-a62f-73c7243e8c77";
 
+<<<<<<< HEAD
 export const ALCHEMY_KEY = "oKxs-03sij-U_N0iOlrSsZFr29-IqbuF";
 
+=======
+>>>>>>> 0b840342 (Initial commit)
 export const NETWORKS = {
   localhost: {
     name: "localhost",
     color: "#666666",
     chainId: 31337,
     blockExplorer: "",
+<<<<<<< HEAD
     rpcUrl: "http://" + (global.window ? window.location.hostname : "localhost") + ":8545",
+=======
+    rpcUrl: "http://" + window.location.hostname + ":8545",
+>>>>>>> 0b840342 (Initial commit)
   },
   mainnet: {
     name: "mainnet",
     color: "#ff8b9e",
     chainId: 1,
+<<<<<<< HEAD
     rpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY}`,
+=======
+    rpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`,
+>>>>>>> 0b840342 (Initial commit)
     blockExplorer: "https://etherscan.io/",
   },
   kovan: {
@@ -66,14 +84,25 @@ export const NETWORKS = {
     faucet: "https://xdai-faucet.top/",
     blockExplorer: "https://blockscout.com/poa/xdai/",
   },
+<<<<<<< HEAD
   polygon: {
     name: "polygon",
+=======
+  matic: {
+    name: "matic",
+>>>>>>> 0b840342 (Initial commit)
     color: "#2bbdf7",
     chainId: 137,
     price: 1,
     gasPrice: 1000000000,
+<<<<<<< HEAD
     rpcUrl: "https://polygon-rpc.com/",
     blockExplorer: "https://polygonscan.com/",
+=======
+    rpcUrl: "https://rpc-mainnet.maticvigil.com",
+    faucet: "https://faucet.matic.network/",
+    blockExplorer: "https://explorer-mainnet.maticvigil.com//",
+>>>>>>> 0b840342 (Initial commit)
   },
   mumbai: {
     name: "mumbai",
@@ -82,8 +111,13 @@ export const NETWORKS = {
     price: 1,
     gasPrice: 1000000000,
     rpcUrl: "https://rpc-mumbai.maticvigil.com",
+<<<<<<< HEAD
     faucet: "https://faucet.polygon.technology/",
     blockExplorer: "https://mumbai.polygonscan.com/",
+=======
+    faucet: "https://faucet.matic.network/",
+    blockExplorer: "https://mumbai-explorer.matic.today/",
+>>>>>>> 0b840342 (Initial commit)
   },
   localArbitrum: {
     name: "localArbitrum",
@@ -119,14 +153,22 @@ export const NETWORKS = {
     color: "#f01a37",
     chainId: 31337,
     blockExplorer: "",
+<<<<<<< HEAD
     rpcUrl: "http://" + (global.window ? window.location.hostname : "localhost") + ":9545",
+=======
+    rpcUrl: "http://" + window.location.hostname + ":9545",
+>>>>>>> 0b840342 (Initial commit)
   },
   localOptimism: {
     name: "localOptimism",
     color: "#f01a37",
     chainId: 420,
     blockExplorer: "",
+<<<<<<< HEAD
     rpcUrl: "http://" + (global.window ? window.location.hostname : "localhost") + ":8545",
+=======
+    rpcUrl: "http://" + window.location.hostname + ":8545",
+>>>>>>> 0b840342 (Initial commit)
     gasPrice: 0,
   },
   kovanOptimism: {
@@ -166,10 +208,17 @@ export const NETWORKS = {
     chainId: 43114,
     blockExplorer: "https://cchain.explorer.avax.network/",
     rpcUrl: `https://api.avax.network/ext/bc/C/rpc`,
+<<<<<<< HEAD
     gasPrice: 225000000000,
   },
   testnetHarmony: {
     name: "testnetHarmony",
+=======
+    gasPrice: 25000000000,
+  },
+  testnetHarmony: {
+    name: "Harmony Testnet",
+>>>>>>> 0b840342 (Initial commit)
     color: "#00b0ef",
     chainId: 1666700000,
     blockExplorer: "https://explorer.pops.one/",
@@ -177,13 +226,18 @@ export const NETWORKS = {
     gasPrice: 1000000000,
   },
   mainnetHarmony: {
+<<<<<<< HEAD
     name: "mainnetHarmony",
+=======
+    name: "Harmony Mainnet",
+>>>>>>> 0b840342 (Initial commit)
     color: "#00b0ef",
     chainId: 1666600000,
     blockExplorer: "https://explorer.harmony.one/",
     rpcUrl: `https://api.harmony.one`,
     gasPrice: 1000000000,
   },
+<<<<<<< HEAD
   fantom: {
     name: "fantom",
     color: "#1969ff",
@@ -201,6 +255,8 @@ export const NETWORKS = {
     gasPrice: 1000000000,
     faucet: "https://faucet.fantom.network/",
   },
+=======
+>>>>>>> 0b840342 (Initial commit)
 };
 
 export const NETWORK = chainId => {

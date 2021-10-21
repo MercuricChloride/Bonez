@@ -3,6 +3,7 @@ const fs = require("fs");
 
 const directoryName = "build";
 
+<<<<<<< HEAD
 const BUCKETNAME = "YOUR_BUCKET_NAME_HERE"; // <<---- SET YOUR BUCKET NAME AND CREATE aws.json ** see below vvvvvvvvvv
 
 /*
@@ -11,6 +12,9 @@ const invalidation = {
  awsInvalidationPath: "/*"
 }
 */
+=======
+const BUCKETNAME = ""; // <<---- SET YOUR BUCKET NAME AND CREATE aws.json ** see below vvvvvvvvvv
+>>>>>>> 0b840342 (Initial commit)
 
 if (!BUCKETNAME) {
   console.log("☢️   Enter a bucket name in packages/react-app/scripts/s3.js ");
@@ -27,6 +31,10 @@ try {
   );
   process.exit(1);
 }
+<<<<<<< HEAD
+=======
+console.log("credentials", credentials);
+>>>>>>> 0b840342 (Initial commit)
 
 credentials.bucket = BUCKETNAME;
 
@@ -36,6 +44,7 @@ const options = {
   useIAMRoleCredentials: false,
 };
 
+<<<<<<< HEAD
 /////////////
 ///////////// First, let's automatically create the bucket if it doesn't exist...
 /////////////
@@ -90,3 +99,12 @@ s3.createBucket(bucketParams, function(err, data) {
     });
   }
 });
+=======
+// optional cloudfront invalidation rule
+// const invalidation = {
+//  awsDistributionId: "<Your CloudFront Distribution Id>",
+//  awsInvalidationPath: "/*"
+// }
+
+s3FolderUpload(directoryName, credentials, options /* , invalidation */);
+>>>>>>> 0b840342 (Initial commit)

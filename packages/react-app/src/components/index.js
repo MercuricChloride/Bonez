@@ -6,7 +6,10 @@ export { default as Blockie } from "./Blockie";
 export { default as BytesStringInput } from "./BytesStringInput";
 export { default as Contract } from "./Contract";
 export { default as EtherInput } from "./EtherInput";
+<<<<<<< HEAD
 export { default as Events } from "./Events";
+=======
+>>>>>>> 0b840342 (Initial commit)
 export { default as Faucet } from "./Faucet";
 export { default as GasGauge } from "./GasGauge";
 export { default as Header } from "./Header";
@@ -18,7 +21,10 @@ export { default as Timeline } from "./Timeline";
 export { default as TokenBalance } from "./TokenBalance";
 export { default as Wallet } from "./Wallet";
 export { default as L2Bridge } from "./L2Bridge";
+<<<<<<< HEAD
 export { default as NetworkDisplay } from "./NetworkDisplay";
 export { default as FaucetHint } from "./FaucetHint";
 export { default as NetworkSwitch } from "./NetworkSwitch";
 export { default as MultiAddressInput } from "./MultiAddressInput";
+=======
+>>>>>>> 0b840342 (Initial commit)

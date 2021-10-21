@@ -1,6 +1,11 @@
 import { SendOutlined } from "@ant-design/icons";
 import { Button, Input, Tooltip } from "antd";
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+// import { useLookupAddress } from "eth-hooks/dapps/ens";
+import React, { useCallback, useState, useEffect } from "react";
+>>>>>>> 0b840342 (Initial commit)
 import Blockies from "react-blockies";
 import { Transactor } from "../helpers";
 import Wallet from "./Wallet";
@@ -39,13 +44,21 @@ export default function Faucet(props) {
   const [address, setAddress] = useState();
   const [faucetAddress, setFaucetAddress] = useState();
 
+<<<<<<< HEAD
   const { price, placeholder, localProvider, ensProvider } = props;
+=======
+  const { price, placeholder, localProvider, ensProvider, onChange } = props;
+>>>>>>> 0b840342 (Initial commit)
 
   useEffect(() => {
     const getFaucetAddress = async () => {
       if (localProvider) {
         const _faucetAddress = await localProvider.listAccounts();
         setFaucetAddress(_faucetAddress[0]);
+<<<<<<< HEAD
+=======
+        //console.log(_faucetAddress);
+>>>>>>> 0b840342 (Initial commit)
       }
     };
     getFaucetAddress();
@@ -58,11 +71,34 @@ export default function Faucet(props) {
     blockie = <div />;
   }
 
+<<<<<<< HEAD
   const updateAddress = newValue => {
     if (typeof newValue !== "undefined" && utils.isAddress(newValue)) {
       setAddress(newValue);
     }
   };
+=======
+  // const ens = useLookupAddress(ensProvider, address);
+
+  const updateAddress = useCallback(
+    async newValue => {
+      if (typeof newValue !== "undefined" && utils.isAddress(newValue)) {
+        let newAddress = newValue;
+        // if (newAddress.indexOf(".eth") > 0 || newAddress.indexOf(".xyz") > 0) {
+        //   try {
+        //     const possibleAddress = await ensProvider.resolveName(newAddress);
+        //     if (possibleAddress) {
+        //       newAddress = possibleAddress;
+        //     }
+        //     // eslint-disable-next-line no-empty
+        //   } catch (e) { }
+        // }
+        setAddress(newAddress);
+      }
+    },
+    [ensProvider, onChange],
+  );
+>>>>>>> 0b840342 (Initial commit)
 
   const tx = Transactor(localProvider);
 
@@ -73,7 +109,15 @@ export default function Faucet(props) {
         placeholder={placeholder ? placeholder : "local faucet"}
         prefix={blockie}
         value={address}
+<<<<<<< HEAD
         onChange={e => updateAddress(e.target.value)}
+=======
+        // value={ens || address}
+        onChange={e => {
+          // setAddress(e.target.value);
+          updateAddress(e.target.value);
+        }}
+>>>>>>> 0b840342 (Initial commit)
         suffix={
           <Tooltip title="Faucet: Send local ether to an address.">
             <Button

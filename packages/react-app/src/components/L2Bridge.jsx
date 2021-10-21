@@ -25,7 +25,11 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
   const [L1Provider, setL1Provider] = useState("");
   const [L2Provider, setL2Provider] = useState("");
   const [rollup, setRollup] = useState("arbitrum");
+<<<<<<< HEAD
   const [environment] = useState("test");
+=======
+  const [environment, setEnvironment] = useState("test");
+>>>>>>> 0b840342 (Initial commit)
 
   const rollupConfig = {
     arbitrum: {
@@ -56,7 +60,11 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
       setL2EthBalance("...");
     }
     setProviders();
+<<<<<<< HEAD
   }, [rollup, activeConfig.L1, activeConfig.L2]);
+=======
+  }, [rollup]);
+>>>>>>> 0b840342 (Initial commit)
 
   const contracts = useContractLoader(userSigner, { externalContracts: L1BridgeMetadata, hardhatContracts: {} });
 
@@ -156,6 +164,13 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
     }
   }
 
+<<<<<<< HEAD
+=======
+  const onReset = () => {
+    form.resetFields();
+  };
+
+>>>>>>> 0b840342 (Initial commit)
   const wrongNetwork = selectedChainId !== activeConfig.L1.chainId;
 
   return (
