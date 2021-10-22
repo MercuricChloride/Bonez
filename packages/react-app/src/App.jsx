@@ -507,7 +507,7 @@ function App(props) {
             */}
 
             <Contract
-              name="AgingNFT"
+              name="Bonez"
               signer={userSigner}
               provider={localProvider}
               address={address}
