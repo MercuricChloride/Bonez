@@ -21,7 +21,7 @@ import {
 import { useEventListener } from "eth-hooks/events/useEventListener";
 import { useExchangeEthPrice } from "eth-hooks/dapps/dex";
 // import Hints from "./Hints";
-import { ExampleUI, Hints, Subgraph } from "./views";
+import { ExampleUI } from "./views";
 
 import { useContractConfig } from "./hooks";
 import Portis from "@portis/web3";
@@ -247,7 +247,7 @@ function App(props) {
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
   // 📟 Listen for broadcast events
-  const setPurposeEvents = useEventListener(readContracts, "YourContract", "SetPurpose", localProvider, 1);
+  const bonezEvents = useEventListener(readContracts, "Bonez", "minted", localProvider, 1);
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -456,16 +456,6 @@ function App(props) {
               YourContract
             </Link>
           </Menu.Item>
-          <Menu.Item key="/hints">
-            <Link
-              onClick={() => {
-                setRoute("/hints");
-              }}
-              to="/hints"
-            >
-              Hints
-            </Link>
-          </Menu.Item>
           <Menu.Item key="/exampleui">
             <Link
               onClick={() => {
@@ -474,26 +464,6 @@ function App(props) {
               to="/exampleui"
             >
               ExampleUI
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/mainnetdai">
-            <Link
-              onClick={() => {
-                setRoute("/mainnetdai");
-              }}
-              to="/mainnetdai"
-            >
-              Mainnet DAI
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/subgraph">
-            <Link
-              onClick={() => {
-                setRoute("/subgraph");
-              }}
-              to="/subgraph"
-            >
-              Subgraph
             </Link>
           </Menu.Item>
         </Menu>
@@ -515,14 +485,6 @@ function App(props) {
               contractConfig={contractConfig}
             />
           </Route>
-          <Route path="/hints">
-            <Hints
-              address={address}
-              yourLocalBalance={yourLocalBalance}
-              mainnetProvider={mainnetProvider}
-              price={price}
-            />
-          </Route>
           <Route path="/exampleui">
             <ExampleUI
               address={address}
@@ -535,37 +497,7 @@ function App(props) {
               writeContracts={writeContracts}
               readContracts={readContracts}
               purpose={purpose}
-              setPurposeEvents={setPurposeEvents}
-            />
-          </Route>
-          <Route path="/mainnetdai">
-            <Contract
-              name="DAI"
-              customContract={mainnetContracts && mainnetContracts.contracts && mainnetContracts.contracts.DAI}
-              signer={userSigner}
-              provider={mainnetProvider}
-              address={address}
-              blockExplorer="https://etherscan.io/"
-              contractConfig={contractConfig}
-              chainId={1}
-            />
-            {/*
-            <Contract
-              name="UNI"
-              customContract={mainnetContracts && mainnetContracts.contracts && mainnetContracts.contracts.UNI}
-              signer={userSigner}
-              provider={mainnetProvider}
-              address={address}
-              blockExplorer="https://etherscan.io/"
-            />
-            */}
-          </Route>
-          <Route path="/subgraph">
-            <Subgraph
-              subgraphUri={props.subgraphUri}
-              tx={tx}
-              writeContracts={writeContracts}
-              mainnetProvider={mainnetProvider}
+              bonezEvents={bonezEvents}
             />
           </Route>
         </Switch>

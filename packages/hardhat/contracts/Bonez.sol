@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Bonez is ERC721  {
 
-  mapping (uint256 => uint) public death;
+  mapping (uint256 => uint256) public death;
 
   string[] public phases = [
     "fresh.json",
@@ -43,14 +43,14 @@ contract Bonez is ERC721  {
     ];
   }
 
+  event minted(address owner, uint8 tokenId);
+
   function claim() public returns (uint256) {
       _tokenIds.increment();
-
       uint256 id = _tokenIds.current();
       _mint(msg.sender, id);
-
       death[id] = block.timestamp; 
-
+      emit minted(msg.sender, id);
       return id;
   }
 
