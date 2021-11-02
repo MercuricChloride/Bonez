@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
-contract Bonezreal is ERC721  {
+contract Bonez is ERC721  {
 
   mapping (uint256 => uint256) public death;
   mapping (uint256 => uint256) public uriRef;
@@ -25,7 +25,7 @@ contract Bonezreal is ERC721  {
 
   function claim() public payable returns (uint256) {
       require(msg.value >= price);
-      price = (price * 1005) / 1000;
+      price = (price * 1010) / 1000;
       (bool success,) = blindNabler.call{value:msg.value}("");
       require( success, "could not send");
       _tokenIds.increment();
@@ -67,19 +67,18 @@ contract Bonezreal is ERC721  {
       string memory base = _baseURI();
       uint256 _age = block.timestamp-death[tokenId];
       uint256 _tokenURI;
-      if(_age < 1 days){
+      if(_age < 1 minutes){
        _tokenURI = 1;
-      }else if(_age < 2 days){
+      }else if(_age < 2 minutes){
         _tokenURI = 2;
-      }else if(_age < 3 days){
+      }else if(_age < 3 minutes){
         _tokenURI = 3;
-      }else if(_age < 7 days){
+      }else if(_age < 4 minutes){
        _tokenURI = 4;
       }else {
         _tokenURI = uriRef[tokenId];
   }
       return string(abi.encodePacked(base, uint2str(_tokenURI), ".json"));
 }
-
 
 }

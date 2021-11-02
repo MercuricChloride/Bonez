@@ -1,8 +1,9 @@
-import { SyncOutlined } from "@ant-design/icons";
-import { utils } from "ethers";
-import { Button, Card, DatePicker, Divider, Input, List, Progress, Slider, Spin, Switch } from "antd";
+import { GithubOutlined, SyncOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Button, Card, DatePicker, Divider, Input, List, Progress, Slider, Spin, Switch, Col, Row } from "antd";
 import React, { useState } from "react";
 import { Address, Balance } from "../components";
+import { parseEther } from "@ethersproject/units";
+import { utils, ethers } from "ethers";
 
 export default function ExampleUI({
   purpose,
@@ -15,49 +16,82 @@ export default function ExampleUI({
   tx,
   readContracts,
   writeContracts,
+  price2mint,
 }) {
-  const [newPurpose, setNewPurpose] = useState("loading...");
 
   return (
     <div>
-      <div style={{ border: "1px solid #cccccc", padding: 16, width: 400, margin: "auto", marginTop: 64 }}>
-        <h2>Mint UR Bonezzzz</h2>
-        <Divider />
-        <div style={{ margin: 8 }}>
-          <Button
-            style={{ marginTop: 8 }}
-            onClick={async () => {
-              /* look how you call setPurpose on your contract: */
-              /* notice how you pass a call back for tx updates too */
-              const result = tx(writeContracts.YourContract.setPurpose(newPurpose), update => {
-                console.log("📡 Transaction Update:", update);
-                if (update && (update.status === "confirmed" || update.status === 1)) {
-                  console.log(" 🍾 Transaction " + update.hash + " finished!");
-                  console.log(
-                    " ⛽️ " +
-                      update.gasUsed +
-                      "/" +
-                      (update.gasLimit || update.gas) +
-                      " @ " +
-                      parseFloat(update.gasPrice) / 1000000000 +
-                      " gwei",
-                  );
-                }
-              });
-              console.log("awaiting metamask/web3 confirm result...", result);
-              console.log(await result);
-            }}
-          >
-            Mint!
-          </Button>
+      <div style={{ padding: 16, margin: "auto", marginTop: 64 }}>
+          <Row>
+            <Col span={4}>
+              <img src="./imgs/1.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+            <Col span={4}>
+              <img src="./imgs/2.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+            <Col span={4}>
+              <img src="./imgs/3.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+            <Col span={4}>
+              <img src="./imgs/4.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+            <Col span={4}>
+              <img src="./imgs/36.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+            <Col span={4}>
+              <img src="./imgs/630.png" alt="Bonez" style={{height: "auto", width: "100%", imageRendering: "pixelated", imageRendering: "-moz-crisp-edges", imageRendering:"crisp-edges"}} />
+            </Col>
+          </Row>
+        </div>
+      <div style={{border: "2px solid orange", padding: 16, width: "35%", margin: "auto"}}>
+        <div style={{ margin: 8}}>
+          <Row>
+          <Col span={24}>
+          <h1 style={{color: "orange", fontSize: "350%"}}>💀BONEZ💀</h1>
+          <h2 style={{color: "orange"}}>An actively decaying NFT PFP series built by @blind_nabler with scaffold-eth!</h2>
+          <h3 style={{color: "orange"}}>When you mint an NFT, you are killing a man, and watching as he goes through the 5 stages of decay over the course of a week.</h3>
+          <h3 style={{color: "orange"}}>Each token is unique and has various traits that are revealed once all 5 stages are complete!</h3>
+          </Col>
+          </Row>
+              <div style={{ margin: 8 }}>
+                <Button
+                  style={{ marginTop: 8, color: "black", backgroundColor: "orange" }}
+                  size={"80%"}
+                  onClick={async () => {
+                    let priceRightNow = await readContracts.Bonez.price();
+                    tx(writeContracts.Bonez.claim({ value: priceRightNow }));
+                  }}
+                >
+                  Go on, kill him |
+                  Current Price: Ξ{ price2mint && (+ethers.utils.formatEther(price2mint).substring(1,7)) }
+                </Button>
+              </div>
         </div>
       </div>
-
-      {/*
-        📑 Maybe display a list of events?
-          (uncomment the event and emit line in YourContract.sol! )
-      */}
-      <div style={{ width: 600, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
+      <Divider />
+      <div style={{border: "2px solid orange", padding: 16, width: "35%", margin: "auto"}}>
+        <Row justify={"center"}>
+          <Col span={21}>
+            <h2 style={{color:"orange"}}>🦴Price determined by a bonding curve🦴</h2>
+            <img src="./imgs/bonding.jpeg" alt="Bonding Curve Graph" style={{width: "100%"}} />
+            <h3 style={{color:"orange"}}>Prices for minting cost 0.001 eth initially and increase by 5% each time someone mints a token. There are a total of 800 variations of BONEZ to mint but in reality there will be far less made.</h3>
+            <Divider />
+            <Row>
+              <Col span={4} offset={1}>
+            <a href="https://twitter.com/blind_nabler">Twitter</a>
+              </Col>
+              <Col span={4} offset={1}>
+            <a href="https://github.com/mercuricchloride/Bonez">Github</a>
+              </Col>
+              <Col span={4} offset={1}>
+            <a href="https://opensea.io">Opensea</a>
+              </Col>
+              <Col span={4} offset={1}>
+            <a href="https://etherscan.io">Etherscan</a>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </div>
     </div>
   );
