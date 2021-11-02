@@ -6,7 +6,20 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 //learn more: https://docs.openzeppelin.com/contracts/3.x/erc721
 
-// GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
+/*
+.-. .-')                    .-') _   ('-.     .-') _  
+\  ( OO )                  ( OO ) )_(  OO)   (  OO) ) 
+ ;-----.\  .-'),-----. ,--./ ,--,'(,------.,(_)----.  
+ | .-.  | ( OO'  .-.  '|   \ |  |\ |  .---'|       |  
+ | '-' /_)/   |  | |  ||    \|  | )|  |    '--.   /   
+ | .-. `. \_) |  |\|  ||  .     |/(|  '--. (_/   /    
+ | |  \  |  \ |  | |  ||  |\    |  |  .--'  /   /___  
+ | '--'  /   `'  '-'  '|  | \   |  |  `---.|        | 
+ `------'      `-----' `--'  `--'  `------'`--------' 
+ Made by @blind_nabler with scaffold-eth
+ Fork this project on github!
+
+*/
 
 contract Bonez is ERC721  {
 
@@ -14,7 +27,7 @@ contract Bonez is ERC721  {
   mapping (uint256 => uint256) public uriRef;
   event minted(address owner, uint256 tokenId);
   address public constant blindNabler = 0x807a1752402D21400D555e1CD7f175566088b955;
-  uint256 public price = 0.001 ether;
+  uint256 public price = 1 ether;
 
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
@@ -25,7 +38,7 @@ contract Bonez is ERC721  {
 
   function claim() public payable returns (uint256) {
       require(msg.value >= price);
-      price = (price * 1010) / 1000;
+      price = (price * 1005) / 1000;
       (bool success,) = blindNabler.call{value:msg.value}("");
       require( success, "could not send");
       _tokenIds.increment();
@@ -73,7 +86,7 @@ contract Bonez is ERC721  {
         _tokenURI = 2;
       }else if(_age < 3 days){
         _tokenURI = 3;
-      }else if(_age < 4 days){
+      }else if(_age < 7 days){
        _tokenURI = 4;
       }else {
         _tokenURI = uriRef[tokenId];

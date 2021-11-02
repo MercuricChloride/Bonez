@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Address, Balance } from "../components";
 import { parseEther } from "@ethersproject/units";
 import { utils, ethers } from "ethers";
+import { parse } from "dotenv";
 
 export default function ExampleUI({
   purpose,
@@ -63,7 +64,7 @@ export default function ExampleUI({
                   }}
                 >
                   Go on, kill him |
-                  Current Price: Ξ{ price2mint && (+ethers.utils.formatEther(price2mint).substring(1,7)) }
+                  Current Price: { price2mint && (+ethers.utils.formatEther(price2mint)) }
                 </Button>
               </div>
         </div>
@@ -74,20 +75,20 @@ export default function ExampleUI({
           <Col span={21}>
             <h2 style={{color:"orange"}}>🦴Price determined by a bonding curve🦴</h2>
             <img src="./imgs/bonding.jpeg" alt="Bonding Curve Graph" style={{width: "100%"}} />
-            <h3 style={{color:"orange"}}>Prices for minting cost 0.001 eth initially and increase by 5% each time someone mints a token. There are a total of 800 variations of BONEZ to mint but in reality there will be far less made.</h3>
+            <h3 style={{color:"orange"}}>Prices for minting cost 1 MATIC initially and increases by 5% each time someone mints a token. There are a total of 800 variations of BONEZ to mint but in reality there will be far less made. Enjoy!</h3>
             <Divider />
             <Row>
               <Col span={4} offset={1}>
             <a href="https://twitter.com/blind_nabler">Twitter</a>
               </Col>
               <Col span={4} offset={1}>
-            <a href="https://github.com/mercuricchloride/Bonez">Github</a>
+            <a href="https://github.com/mercuricchloride/Bonez/tree/aging-nft">Github</a>
               </Col>
               <Col span={4} offset={1}>
             <a href="https://opensea.io">Opensea</a>
               </Col>
               <Col span={4} offset={1}>
-            <a href="https://etherscan.io">Etherscan</a>
+            <a href="https://polygonscan.com/address/0x03047fCbeBc7C8aCA4dDD6EEC3c7f06D22356402">Polygonscan</a>
               </Col>
             </Row>
           </Col>
