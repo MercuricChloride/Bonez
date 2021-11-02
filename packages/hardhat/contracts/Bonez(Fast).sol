@@ -67,13 +67,13 @@ contract Bonez is ERC721  {
       string memory base = _baseURI();
       uint256 _age = block.timestamp-death[tokenId];
       uint256 _tokenURI;
-      if(_age < 1 minutes){
+      if(_age < 1 days){
        _tokenURI = 1;
-      }else if(_age < 2 minutes){
+      }else if(_age < 2 days){
         _tokenURI = 2;
-      }else if(_age < 3 minutes){
+      }else if(_age < 3 days){
         _tokenURI = 3;
-      }else if(_age < 4 minutes){
+      }else if(_age < 4 days){
        _tokenURI = 4;
       }else {
         _tokenURI = uriRef[tokenId];
