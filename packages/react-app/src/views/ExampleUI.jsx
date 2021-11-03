@@ -64,7 +64,7 @@ export default function ExampleUI({
                   }}
                 >
                   Go on, kill him |
-                  Current Price: { price2mint && (+ethers.utils.formatEther(price2mint)) }
+                  Current Price: { price2mint && (+ethers.utils.formatEther(price2mint).substring(0,5)) } MATIC
                 </Button>
               </div>
         </div>
