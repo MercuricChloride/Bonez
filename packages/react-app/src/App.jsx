@@ -49,7 +49,7 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS.matic; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
@@ -237,10 +237,7 @@ function App(props) {
   // keep track of a variable from the contract in the local React state:
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
-  const price2mint = useContractReader(readContracts, "Bonez", "price");
-
-  // 📟 Listen for broadcast events
-  const bonezEvents = useEventListener(readContracts, "Bonez", "minted", localProvider, 1);
+  const price2mint = useContractReader(readContracts, "Yoconaut", "price");
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -447,7 +444,7 @@ function App(props) {
             */}
 
             <Contract
-              name="Bonez"
+              name="Yoconaut"
               signer={userSigner}
               provider={localProvider}
               address={address}
@@ -467,7 +464,6 @@ function App(props) {
               writeContracts={writeContracts}
               readContracts={readContracts}
               purpose={purpose}
-              bonezEvents={bonezEvents}
               price2mint={price2mint}
               style={{backgroundColor:"darkgray"}}
             />
