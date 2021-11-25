@@ -49,7 +49,7 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.matic; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
@@ -237,7 +237,7 @@ function App(props) {
   // keep track of a variable from the contract in the local React state:
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
-  const price2mint = useContractReader(readContracts, "Yoconaut", "price");
+  const price2mint = useContractReader(readContracts, "YoconautRinkeby", "price");
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -361,7 +361,7 @@ function App(props) {
     }
   } else {
     networkDisplay = (
-      <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
+      <div style={{ zIndex: 2, position: "fixed", right: 140, top: 38, padding: 16, color: targetNetwork.color }}>
         {targetNetwork.name}
       </div>
     );
@@ -418,7 +418,7 @@ function App(props) {
           onClick={() => {
             faucetTx({
               to: address,
-              value: ethers.utils.parseEther("0.01"),
+              value: ethers.utils.parseEther("10"),
             });
             setFaucetClicked(true);
           }}
@@ -430,10 +430,13 @@ function App(props) {
   }
 
   return (
-    <div className="App">
-      {/* ✏️ Edit the header and change the title to your project name */}
-      <Header />
-      {networkDisplay}
+    <div className="App" style={{
+        backgroundImage:'url(./imgs/background.jpg)',
+        backgroundSize:'auto',
+        backgroundAttachment:'fixed',
+    }}>
+      {/* ✏️ Edit the header and change the title to your project name 
+      <Header />*/}
       <BrowserRouter>
         <Switch>
           <Route exact path="/contract">
@@ -444,7 +447,7 @@ function App(props) {
             */}
 
             <Contract
-              name="Yoconaut"
+              name="YoconautRinkeby"
               signer={userSigner}
               provider={localProvider}
               address={address}
@@ -465,14 +468,13 @@ function App(props) {
               readContracts={readContracts}
               purpose={purpose}
               price2mint={price2mint}
-              style={{backgroundColor:"darkgray"}}
             />
           </Route>
         </Switch>
       </BrowserRouter>
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, width:'100%', zIndex:'1'}}>
         <Account
           address={address}
           localProvider={localProvider}
@@ -484,35 +486,8 @@ function App(props) {
           logoutOfWeb3Modal={logoutOfWeb3Modal}
           blockExplorer={blockExplorer}
         />
-        {faucetHint}
       </div>
 
-      {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
-      <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
-        <Row align="middle" gutter={[4, 4]}>
-          <Col span={8}>
-            <Ramp price={price} address={address} networks={NETWORKS} />
-          </Col>
-
-          <Col span={8} style={{ textAlign: "center", opacity: 0.8 }}>
-            <GasGauge gasPrice={gasPrice} />
-          </Col>
-          <Col span={8} style={{ textAlign: "center", opacity: 1 }}>
-            <Button
-              onClick={() => {
-                window.open("https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA");
-              }}
-              size="large"
-              shape="round"
-            >
-              <span style={{ marginRight: 8 }} role="img" aria-label="support">
-                💬
-              </span>
-              Support
-            </Button>
-          </Col>
-        </Row>
-      </div>
     </div>
   );
 }

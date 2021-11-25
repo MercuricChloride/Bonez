@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:500,400,300,300italic,400italic,700,700italic);
+
+/* UNIVERSAL */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+/* ROOT FONT STYLES */
+
+* {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 2.5rem;
+  line-height:2.7rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-heavy {
+  font-weight: 700;
+}
+
+/* POSITIONING */
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.m-0 {margin:0;}
+.mt-20 {margin-top:20px;}
+.mb-20 {margin-bottom:20px;}
+.p-0 {padding:0;}
+.p-40 {padding:40px;}
+.p-30 {padding:30px;}
+.p-20 {padding:20px;}
+
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url(imgs/background.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+img {max-width:100%;}
+.row.tinted {height:100%;}
+
+.container {margin:auto;}
+
+.tinted {
+  background:rgba(0,2,43,0.63);
+}
+
+.logo .box {
+  display:flex;align-items: center;
+}
+.logo img {
+  max-width:60px;}
+.logo span {
+  display:block;
+  padding-left:10px;
+  font-weight:500;
+}
+
+.wallet-icon {
+  width:50px;
+}
+.balance {margin-right:10px;}
+.btn {
+  background:#0dbbb9;
+  border-radius:20px;
+  border:none;
+  padding:10px 20px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.btn-big {
+  width:100%;
+  padding:20px;
+  font-size:1.1rem;
+}
+
+.btn-big span {
+  display:block;
+  font-size:0.9rem;
+}
+
+
+.footer p {
+  font-size:1rem;
+
+}
+.footer a {
+  color:#0dbbb9;
+  text-decoration:none;
+}
