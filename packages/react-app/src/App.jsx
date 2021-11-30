@@ -97,7 +97,7 @@ const walletLinkProvider = walletLink.makeWeb3Provider(`https://mainnet.infura.i
   Web3 modal helps us "connect" external wallets:
 */
 const web3Modal = new Web3Modal({
-  network: "mainnet", // Optional. If using WalletConnect on xDai, change network to "xdai" and add RPC info below for xDai chain.
+  network: "matic", // Optional. If using WalletConnect on xDai, change network to "xdai" and add RPC info below for xDai chain.
   cacheProvider: true, // optional
   theme: "dark", // optional. Change to "dark" for a dark theme.
   providerOptions: {
@@ -110,6 +110,7 @@ const web3Modal = new Web3Modal({
           1: `https://mainnet.infura.io/v3/${INFURA_ID}`, // mainnet // For more WalletConnect providers: https://docs.walletconnect.org/quick-start/dapps/web3-provider#required
           42: `https://kovan.infura.io/v3/${INFURA_ID}`,
           100: "https://dai.poa.network", // xDai
+          137: `https://polygon-mainnet.infura.io/v3/${INFURA_ID}`, // mainnet // For more WalletConnect providers: https://docs.walletconnect.org/quick-start/dapps/web3-provider#required
         },
       },
     },

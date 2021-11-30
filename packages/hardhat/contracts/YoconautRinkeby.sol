@@ -9,7 +9,6 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 /*
  Made by @blind_nabler with scaffold-eth
  Fork this project on github!
-
 */
 
 contract YoconautRinkeby is ERC721  {
